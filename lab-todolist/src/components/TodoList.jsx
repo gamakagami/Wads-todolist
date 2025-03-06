@@ -4,15 +4,16 @@ import TodoForm from './TodoForm';
 import TodoFilters from './TodoFilters';
 import TodoItem from './TodoItem';
 import EmptyState from './EmptyState';
+import BackButton from './BackButton';
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
-  const [filter, setFilter] = useState('all'); // 'all', 'completed', 'active'
+  const [filter, setFilter] = useState('all');
 
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1); // Goes back to the previous page
+    navigate(-1); 
   };
 
   const addTodo = (text) => {
@@ -34,18 +35,13 @@ function TodoList() {
   const filteredTodos = todos.filter(todo => {
     if (filter === 'completed') return todo.completed;
     if (filter === 'active') return !todo.completed;
-    return true; // 'all'
+    return true; 
   });
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-purple-100">
       <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-2xl">
-        <button 
-          onClick={handleGoBack}
-          className="mb-4 text-blue-500 hover:text-blue-700 transition-colors"
-        >
-          ← Back
-        </button>
+      <BackButton />
         <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Todo List</h1>
         
         <TodoForm onAddTodo={addTodo} />

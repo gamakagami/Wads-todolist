@@ -1,24 +1,13 @@
 import React from 'react';
 import gamImage from '../assets/gam.jpg';
-import { useNavigate } from 'react-router-dom';
+import BackButton from './BackButton';
 
 function Profile() {
-
-  const navigate = useNavigate();
-
-  const handleGoBack = () => {
-    navigate(-1); // Goes back to the previous page
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-purple-100">
       <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-2xl">
-      <button 
-          onClick={handleGoBack}
-          className="mb-4 text-blue-500 hover:text-blue-700 transition-colors"
-        >
-          ← Back
-        </button>
+     <BackButton />
         <div className="flex flex-col items-center">
           <img 
             src={gamImage} 
